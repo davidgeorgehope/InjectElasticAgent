@@ -1,8 +1,8 @@
 // Saves options to chrome.storage
 function saveOptions() {
-  var color = document.getElementById('color').value;
+  var elasticUrl = document.getElementById('elasticUrl').value;
   chrome.storage.local.set({
-    backgroundColor: color
+    elasticUrl: elasticUrl
   }, function() {
     // Update status to let user know options were saved.
     alert('Options saved.');
@@ -12,9 +12,9 @@ function saveOptions() {
 // Restores select box and checkbox state using the preferences stored in chrome.storage.
 function restoreOptions() {
   chrome.storage.local.get({
-    backgroundColor: 'red'
+    elasticUrl: 'http://localhost:8200'
   }, function(items) {
-    document.getElementById('color').value = items.backgroundColor;
+    document.getElementById('elasticUrl').value = items.elasticUrl;
   });
 }
 
